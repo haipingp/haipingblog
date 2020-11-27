@@ -73,3 +73,20 @@ size_t zmalloc_size(void *ptr) {
 #endif
 ```
 
+* `update_zmalloc_stat_alloc`函数：
+``` c
+#define update_zmalloc_stat_alloc(__n) do { \
+    size_t _n = (__n); \
+    if (_n&(sizeof(long)-1)) _n += sizeof(long)-(_n&(sizeof(long)-1)); \  
+    if (zmalloc_thread_safe) { \
+        update_zmalloc_stat_add(_n); \
+    } else { \
+        used_memory += _n; \
+    } \
+} while(0)
+```
+* `update_zmalloc_stat_alloc`函数的第三行等价于`if(_n&7) _n += 8 - (_n&7);`，用于判断`_n`是否为8的倍数，如果不是8的倍数，加上相应的偏移量，使之为8的倍数。这里不用`_%8`是因为位操作效率更高。
+* 之前malloc分配内存时，需要补齐为8的倍数的。因此，这里通过这样补齐`_n`才能正确计算占用的内存字节数。
+* 这里如果是线程安全的话，需要采用系统的原子增加n接口`__sync_add_and_fetch`，或者线程锁;如果不需要线程安全的话，直接给`used_memory`加n就行。
+* 在`zcalloc`函数中，如果未定义`HAVE_MALLOC_SIZE`，需要通过分配的额外`PREFIX_SIZE`空间来自行存储分配的内存大小。
+
