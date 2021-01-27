@@ -13,16 +13,16 @@ categories:
 
 * 全局工具中关于host-only的配置（一般安装好VirtualBox之后，在网络中会多出一个HostOnly的网络）：
 
-![2020-01-26-1.png](https://haipingp.github.io/myPics/2020-01-26-1.png)
+![2020-01-26-1.png](2020-01-26-1.png)
 
 * 全局设定中关于NAT网络的设置：
 
-![2020-01-28-2044.png](https://haipingp.github.io/myPics/2020-01-28-2044.png)
+![2020-01-28-2044.png](2020-01-28-2044.png)
 
 * 右键新建的虚拟机，点击设置，点击网络，网卡1和网卡2的设置如下：
 
-![](https://haipingp.github.io/myPics/2020-01-28-2319.png)
-![](https://haipingp.github.io/myPics/2020-01-28_23-19-41.png)
+![网卡1](2020-01-28-2319.png)
+![网卡2](2020-01-28_23-19-41.png)
 
 * 安装Ubuntu 18.04 Server
 
