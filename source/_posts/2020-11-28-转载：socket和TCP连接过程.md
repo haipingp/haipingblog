@@ -1,5 +1,5 @@
 ---
-title: 2020-11-28-转载：socket和TCP连接过程
+title: 转载：socket和TCP连接过程
 date: 2020-11-28 22:28:43
 categories:
 - linux
