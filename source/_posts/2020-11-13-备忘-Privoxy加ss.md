@@ -112,8 +112,9 @@ systemctl status privoxy  # 查看服务状态
 * 有个博客介绍privoxy比较好：
 `https://www.cnblogs.com/hongdada/p/10787924.html`
 
-## 四、遗留问题
+## 四、遗留问题和解决
 * 运行了ss和privoxy之后，发现用`curl https://www.google.com`一直报503错误，尚未解决
+* 后来发现，更新yum源为阿里源，可以直接通过`yum install privoxy`进行安装。原来安装的privoxy版本也比较低了
 
 
 
