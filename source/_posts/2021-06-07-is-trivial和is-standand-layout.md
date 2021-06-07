@@ -53,4 +53,4 @@ categories:
 * 描述如此之复杂，虽然看懂了，但感觉也没找到这些定义的规律，所以使用的时候，还是要继续翻下这些接口的标准定义。不过记录一下后，可以按照这些记录大致找回记忆，再去看接口的标准定义进行细化理解。
 * 其实平时使用也不需要这么细致
 * 使用memcopy memset等函数时，可以看下这些接口的注意事项，比如potentially-overlapping subobject 和not TriviallyCopyable的对象是不能使用这些函数的。其中，union中两个字段如果部分重叠，就会产生overlapping。
-
+* 虽然使用这些接口、配合static_assert可以找到一些错误的使用，但是最好不对一些复杂结构进行内存操作。
